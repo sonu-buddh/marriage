@@ -1,0 +1,131 @@
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<div class="container-fluid">
+    <div id="myContainer">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="left_image text-left" id="leftImage">
+                    <%= image_tag  "rasmi.jpeg", class: "img_size ", alt: "Online Training" %>
+                </div>
+            </div>
+            <div class="middle_image col-md-12 text-center" id="middleImage">
+                <%= image_tag  "sonu.jpeg" , class: "responsive img_size ", alt: "Online Training" %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="right_image text-right" id="rightImage">
+                    <%= image_tag  "rasmi.jpeg" , class: " img_size ", alt: "Online Training" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="text-center single_line mar_bottom" id="timer timer_div">
+        <div class="days" id="days"></div>
+        <div class="hours" id="hours"></div>
+        <div class="minutes" id="minutes"></div>
+        <div class="seconds" id="seconds"></div>
+    </div>
+</div>
+
+<script>
+    var animate;
+
+    $(function() {
+        // moveRight();
+        // moveLeft();
+        $('#middleImage').hide();
+    });
+
+
+    function moveRight() {
+        var elem = document.getElementById("leftImage");
+        var pos = 0;
+        var id = setInterval(frame, 30);
+        var sw = (screen.width / 2);
+
+
+        function frame() {
+            if (pos == sw) {
+                clearInterval(id);
+            } else {
+                if (pos <= sw) {
+                    pos++;
+                    //   elem.style.top = pos + 'px';
+                    elem.style.left = pos + 'px';
+                }
+                if (pos >= sw) {
+                    $('#leftImage').hide();
+                }
+            }
+        }
+    }
+
+    // function moveLeft() {
+    //     var elem = document.getElementById("rightImage");
+    //     var pos = 0;
+    //     var id = setInterval(frame, 30);
+
+    //     function frame() {
+    //         if (pos == 570) {
+    //             clearInterval(id);
+    //         } else {
+    //             console.log(pos);
+    //             if (pos >= -570) {
+    //                 pos--;
+    //                 elem.style.left = pos + 'px';
+    //                 stop();
+    //             }
+    //             if (pos == -570) {
+    //                 $('#rightImage').hide();
+    //                 $('#middleImage').show("slow");
+    //                 animate = setTimeout(function() {
+    //                     moveLeft();
+    //                 }, 20);
+    //             }
+    //             //   elem.style.top = pos + 'px';
+    //         }
+    //     }
+    // }
+
+    function stop() {
+        clearTimeout(animate);
+    }
+
+    function makeTimer() {
+
+        // var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
+        var endTime = new Date("29 Feb 2021 9:56:00 GMT+01:00");
+        endTime = (Date.parse(endTime) / 1000);
+
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
+
+        var timeLeft = endTime - now;
+
+        var days = Math.floor(timeLeft / 86400);
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+        if (hours < "10") {
+            hours = "0" + hours;
+        }
+        if (minutes < "10") {
+            minutes = "0" + minutes;
+        }
+        if (seconds < "10") {
+            seconds = "0" + seconds;
+        }
+
+        $("#days").html(days + "<span>Days</span>");
+        $("#hours").html(hours + "<span>Hours</span>");
+        $("#minutes").html(minutes + "<span>Minutes</span>");
+        $("#seconds").html(seconds + "<span>Seconds</span>");
+
+    }
+
+    setInterval(function() {
+        makeTimer();
+    }, 1000);
+</script>

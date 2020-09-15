@@ -1,12 +1,11 @@
 var animate;
 
 (function () {
-    moveRight();
-    moveLeft();
+    // moveRight();
+    // moveLeft();
     $('#middleImage').hide();
 });
 
-function callBack() { };
 
 function moveRight() {
     var elem = document.getElementById("leftImage");

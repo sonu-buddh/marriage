@@ -1,122 +1,83 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<div id="myContainer">
-    <div class="row">
-        <div class="left_image col-md-6 text-left" id="leftImage">
-            <%= image_tag  "rasmi.jpeg",:size => '300x400' %>
-        </div>
-        <div class="middle_image col-md-12 text-center" id="middleImage">
-            <%= image_tag  "sonu.jpeg",:size => '300x400' %>
-        </div>
-        <div class="right_image col-md-6 text-right" id="rightImage">
-            <%= image_tag  "rasmi.jpeg",:size => '300x400' %>
-        </div>
+
+
+<div class="wrapper">
+    <div class="left-img left_image"><%= image_tag  "rasmi.jpeg", class: "img_size ", alt: "abc" %></div>
+    <div class="middle-img middle_image"><%= image_tag  "sonu.jpeg", class: "img_size ", alt: "abc" %></div>
+    <div class="right-img right_image"><%= image_tag  "rasmi.jpeg", class: "img_size ", alt: "abc" %></div>
+
+
+    <div class="box">
+        <div class="days" id="days"></div>
+        <div class="hours" id="hours"></div>
+        <div class="minutes" id="minutes"></div>
+        <div class="seconds" id="seconds"></div>
     </div>
-</div>
 
-<div class="" id="timer timer_div">
-    <div class="days" id="days"></div>
-    <div class="hours" id="hours"></div>
-    <div class="minutes" id="minutes"></div>
-    <div class="seconds" id="seconds"></div>
-</div>
+    <script>
+        window.onload = () => {
+            const leftImage = document.querySelector(".left-img");
+            const rightImage = document.querySelector(".right-img");
+            const middleImage = document.querySelector(".middle-img");
 
-<script>
-    var animate;
+            //    setTimeout(()=>{
+            //     document.querySelector('.loading-part').style.display="none";
+            //     document.querySelector('.wrapper').style.display="block";
+            //    },2000);
 
-    $(function() {
-        moveRight();
-        moveLeft();
-        $('#middleImage').hide();
-    });
+            leftImage.style.left = "50%";
+            leftImage.style.transform = "translate(-50%,-50%)";
 
-    function callBack() {};
+            rightImage.style.right = "50%";
+            rightImage.style.transform = "translate(50%,-50%)";
 
-    function moveRight() {
-        var elem = document.getElementById("leftImage");
-        var pos = 0;
-        var id = setInterval(frame, 30);
+            setTimeout(() => {
+                leftImage.style.transform = "translate(-50%,-50%) scale(0,0)";
+                rightImage.style.transform = "translate(50%,-50%) scale(0,0)";
 
-        function frame() {
-            if (pos == 570) {
-                clearInterval(id);
-            } else {
-                if (pos <= 570) {
-                    pos++;
-                    //   elem.style.top = pos + 'px';
-                    elem.style.left = pos + 'px';
-                }
-                if (pos >= 570) {
-                    $('#leftImage').hide();
-                }
+                //    window.innerWidth -> this gives the width of Current Window Size
+
+                if (window.innerWidth <= 576)
+                    middleImage.style.transform = "translate(-50%,-50%) scale(2,1.2)";
+                else
+                    middleImage.style.transform = "translate(-50%,-50%) scale(1.2,1.2)";
+            }, 10000);
+        };
+
+        function makeTimer() {
+
+            // var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
+            var endTime = new Date("29 Feb 2021 9:56:00 GMT+01:00");
+            endTime = (Date.parse(endTime) / 1000);
+
+            var now = new Date();
+            now = (Date.parse(now) / 1000);
+
+            var timeLeft = endTime - now;
+
+            var days = Math.floor(timeLeft / 86400);
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+            if (hours < "10") {
+                hours = "0" + hours;
             }
-        }
-    }
-
-    function moveLeft() {
-        var elem = document.getElementById("rightImage");
-        var pos = 0;
-        var id = setInterval(frame, 30);
-
-        function frame() {
-            if (pos == 570) {
-                clearInterval(id);
-            } else {
-                console.log(pos);
-                if (pos >= -570) {
-                    pos--;
-                    elem.style.left = pos + 'px';
-                    stop();
-                }
-                if (pos == -570) {
-                    $('#rightImage').hide();
-                    $('#middleImage').show("slow");
-                    animate = setTimeout(function() {
-                        moveLeft();
-                    }, 20);
-                }
-                //   elem.style.top = pos + 'px';
+            if (minutes < "10") {
+                minutes = "0" + minutes;
             }
-        }
-    }
+            if (seconds < "10") {
+                seconds = "0" + seconds;
+            }
 
-    function stop() {
-        clearTimeout(animate);
-    }
+            $("#days").html(days + "<span>Days</span>");
+            $("#hours").html(hours + "<span>Hours</span>");
+            $("#minutes").html(minutes + "<span>Minutes</span>");
+            $("#seconds").html(seconds + "<span>Seconds</span>");
 
-    function makeTimer() {
-
-        // var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
-        var endTime = new Date("29 Feb 2020 9:56:00 GMT+01:00");
-        endTime = (Date.parse(endTime) / 1000);
-
-        var now = new Date();
-        now = (Date.parse(now) / 1000);
-
-        var timeLeft = endTime - now;
-
-        var days = Math.floor(timeLeft / 86400);
-        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
-        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
-        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
-
-        if (hours < "10") {
-            hours = "0" + hours;
-        }
-        if (minutes < "10") {
-            minutes = "0" + minutes;
-        }
-        if (seconds < "10") {
-            seconds = "0" + seconds;
         }
 
-        $("#days").html(days + "<span>Days</span>");
-        $("#hours").html(hours + "<span>Hours</span>");
-        $("#minutes").html(minutes + "<span>Minutes</span>");
-        $("#seconds").html(seconds + "<span>Seconds</span>");
-
-    }
-
-    setInterval(function() {
-        makeTimer();
-    }, 1000);
-</script>
+        setInterval(function() {
+            makeTimer();
+        }, 1000);
+    </script>
