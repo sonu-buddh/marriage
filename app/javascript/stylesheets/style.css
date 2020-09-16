@@ -36,7 +36,7 @@ a {
     /* display: none; */
 }
 
-.left-img, .right-img ,.middle-img{
+.left-img, .right-img {
    position: absolute;
    top: 220px;
    transform: translate(0,-50%);
@@ -45,6 +45,15 @@ a {
    max-width: 250px;
 
    /* border: 2px solid #fff; */
+   text-align: center;
+   transition:transform 1.3s ease-in-out;
+}
+.middle-img{
+   position: absolute;
+   top: 220px;
+   transform: translate(0,-50%);
+   height: 325px;
+   width: 40%; 
    text-align: center;
    transition:transform 1.3s ease-in-out;
 }
@@ -95,6 +104,15 @@ a {
   display: block;
   font-size: 2px;
   color: white;
+}
+.middle-img{
+   /* position: absolute; */
+   top: 220px;
+   /* transform: translate(0,-50%); */
+   height: 325px;
+   width: 100%; 
+   text-align: center;
+   transition:transform 1.3s ease-in-out;
 }
 
 }
@@ -197,7 +215,7 @@ a {
 }
 img{
  height:100%;
- width:100%;
+ width:60%;
 }
 
 body {

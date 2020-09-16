@@ -3,7 +3,7 @@
 
 <div class="wrapper">
     <div id="leftImage" class="left-img left_image"><%= image_tag  "rasmi_full.jpeg", class: "img_size ", alt: "abc" %></div>
-    <div id="middleImage" class="middle-img middle_image"><%= image_tag  "rasmi.jpeg", class: "img_size ", alt: "abc" %></div>
+    <div id="middleImage" class="middle-img middle_image"><%= image_tag  "both.jpeg", class: "img_size ", alt: "abc" %></div>
     <div id="rightImage" class="right-img right_imag"><%= image_tag  "sonu_full.jpeg", class: "img_size ", alt: "abc" %></div>
 
     <div class="demo"></div>
@@ -326,9 +326,9 @@
                 // window.onload = () => {
 
                 animation();
+                $('#middleImage').hide();
                 setInterval(function() {
                     console.log("call back called");
-                    // $('#middleImage').hide();
                     // animation();
                 }, 10000);
 
@@ -366,6 +366,8 @@
 
                 setTimeout(() => {
                     fireworks()
+                    $('#middleImage').show();
+
                     leftImage.style.transform = "translate(-50%,-50%) scale(0,0)";
                     rightImage.style.transform = "translate(50%,-50%) scale(0,0)";
                     if (window.innerWidth <= 576)
