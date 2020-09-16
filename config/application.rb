@@ -15,5 +15,8 @@ module Marriage
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    
+    # Enable rails to serve my assets
+    config.serve_static_assets = true
   end
 end
