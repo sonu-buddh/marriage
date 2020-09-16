@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 import '../stylesheets/application'
 import "../packs/jquery.js"
-
+import "../packs/jquery.min.js"
 
 
 require("@rails/ujs").start()

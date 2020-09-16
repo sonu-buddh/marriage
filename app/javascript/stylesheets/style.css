@@ -1,4 +1,27 @@
 *{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{ position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    font-size:3rem;
+    transform: translate(-50%,-50%);
+}
+#example {
+  padding-top: 5vh;
+  min-height: 90vh;
+  color: white;
+}
+
+a {
+  color: grey;
+}
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
