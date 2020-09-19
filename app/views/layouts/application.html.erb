@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Marriage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,700|Hepta+Slab:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
 </head>
 
-<body>
-    <%= yield %>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <%= render partial: "layouts/header" %>
+         <%= yield %>
+        <%= render partial: "layouts/footer" %>
 </body>
 
 </html>
