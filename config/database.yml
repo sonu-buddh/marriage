@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: marriage_production
-  username: marriage
-  password: <%= ENV['MARRIAGE_DATABASE_PASSWORD'] %>
+  # username: marriage
+  # password: <%= ENV['MARRIAGE_DATABASE_PASSWORD'] %>
