@@ -17,15 +17,17 @@
 
 
                   <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+
                       <ul class="site-menu main-menu js-clone-nav ml-auto ">
                           <li class="<%= "active" if root_path %>"><%= link_to "Home", root_path, class: "nav-link" %></li>
                           <li><a href="about.html" class="nav-link">About</a></li>
-                          <li <%= "active" if dashboard_day_counter_path %>><%= link_to "Day Counter", dashboard_day_counter_path, class: "nav-link" %></li>
+                          <li class="<%= "active" if dashboard_day_counter_path %>"><%= link_to "Day Counter", dashboard_day_counter_path, class: "nav-link" %></li>
                           <li><a href="photography.html" class="nav-link">Photography</a></li>
                           <li><a href="event.html" class="nav-link">Event</a></li>
                           <li><a href="contact.html" class="nav-link">Contact</a></li>
                       </ul>
                   </nav>
+
               </div>
 
 

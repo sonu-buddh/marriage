@@ -279,3 +279,8 @@ span {
    padding: 5px;
    text-align: center;
 }
+.not_login{
+  background-image: url("../images/bg_image.jpeg");
+    background-repeat: no-repeat;
+
+}
