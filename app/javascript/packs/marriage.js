@@ -1,8 +1,8 @@
 var animate;
 
 (function () {
-    // moveRight();
-    // moveLeft();
+    moveRight();
+    moveLeft();
     $('#middleImage').hide();
 });
 

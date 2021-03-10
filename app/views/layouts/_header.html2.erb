@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="col-3 ">
+        <div class="site-logo">
+            <a href="index.html" class="font-weight-bold">Marrido</a>
+        </div>
+    </div>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+        </nav>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ml-auto">
+            <div class="navbar-nav">
+
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                    <li class="<%= 'active' if active_page?(root_path) %>"><%= link_to "Home", root_path, class: "nav-link" %></li>
+                    <li class="<%= 'active' if active_page?(day_counter_path) %>"><%= link_to "Day Counter", day_counter_path, class: "nav-link" %></li>
+                    <li class="<%= 'active' if active_page?(contact_path) %>"><a href="photography.html" class="nav-link">Photography</a></li>
+                    <li class="<%= 'active' if active_page?(contact_path) %>"><a href="event.html" class="nav-link">Event</a></li>
+                    <li class="<%= 'active' if active_page?(contact_path) %>"><%= link_to "Contact", contact_path, class: "nav-link" %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<style>
+    @media (min-width: 800px) and (max-width: 850px) {
+        .navbar:not(.top-nav-collapse) {
+            background: #1C2331 !important;
+        }
+    }
+
+    .view,
+    body,
+    html {
+        height: 100%
+    }
+
+    .navbar {
+        background-color: rgba(0, 0, 0, .2)
+    }
+
+    .page-footer,
+    .top-nav-collapse {
+        background-color: #1C2331
+    }
+
+    @media only screen and (max-width:768px) {
+        .navbar {
+            background-color: #1C2331
+        }
+    }
+</style>
+
+<script>
+    // MDB Lightbox Init
+    $(function() {
+        $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+    });
+
+    // Adding animations to the sections
+    $("section").addClass("wow fadeIn");
+
+    // Animations Init
+    new WOW().init();
+</script>
+
+
+ <nav class="navbar navbar-expand-md">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="row align-items-center position-relative">
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <div class="site-logo">
+                        <%= link_to "Marrido", root_path, class: "font-weight-bold"  %>
+                    </div>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <%= link_to "Home", root_path, class: "nav-item nav-link  #{ 'active' if active_page?(root_path) }"  %>
+                    <%= link_to "Day Counter", day_counter_path, class: "nav-item nav-link  #{ 'active' if active_page?(day_counter_path) }"  %>
+                    <%= link_to "Contact", contact_path, class: "nav-item nav-link  #{ 'active' if active_page?(contact_path) }"  %>
+                    <%= link_to "Photography", contact_path, class: "nav-item nav-link  #{ 'active' if active_page?(contact_path) }"  %>
+                </div>
+            </div>
+
+        </div>
+    </nav>

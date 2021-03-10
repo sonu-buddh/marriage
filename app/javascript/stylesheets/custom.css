@@ -265,7 +265,7 @@ h1{ position: absolute;
   
 }
 
-span {
+.wrapper span {
   display: block;
   font-size: 20px;
   color: white;
@@ -283,4 +283,10 @@ span {
   background-image: url("../images/bg_image.jpeg");
     background-repeat: no-repeat;
 
+}
+.social_29128.white a span {
+    color: #f4ad2d !important;
+}
+.icon-facebook:before {
+    content: "\f09a" !important;
 }

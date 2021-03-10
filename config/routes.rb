@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  resources :appoinments
+  root 'dashboard#invitation_card'
   devise_for :users
 
+  get 'dashboard/invitation_card'
+  post 'dashboard/create_invitation'
+  get 'dashboard/download_card'
   get 'dashboard/index'
   get 'dashboard/image_grid'
-  get 'dashboard/day_counter'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "day_counter", to: 'dashboard#day_counter'
+  get "contact", to: 'dashboard#contact'
+  get "photograpy", to: 'dashboard#photograpy'
+  post "contact_me", to: 'dashboard#contact_me'
+
 end
